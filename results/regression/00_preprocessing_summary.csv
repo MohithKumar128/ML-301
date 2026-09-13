@@ -1,0 +1,2 @@
+raw_rows,duplicates_removed,clean_rows,training_rows,test_rows,prepared_features
+15000,1096,13904,11123,2781,143
