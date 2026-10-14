@@ -1,2 +1,0 @@
-Model,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC
-Gradient Boosting,0.9419,0.9407658559711121,0.9419,0.9378664131491989,0.9856382150295946

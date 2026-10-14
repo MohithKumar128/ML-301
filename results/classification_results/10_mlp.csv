@@ -1,0 +1,2 @@
+Model,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC
+MLP Classifier,0.9223,0.9217924258551342,0.9223,0.9217916932164267,0.9764539618150279
