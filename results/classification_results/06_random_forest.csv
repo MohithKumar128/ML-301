@@ -1,0 +1,2 @@
+Model,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC
+Random Forest,0.8967,0.889217417135126,0.8967,0.8865322062626192,0.9688351510924261

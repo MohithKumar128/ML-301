@@ -1,0 +1,2 @@
+Model,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC
+AdaBoost,0.9589,0.9519596550816359,0.9589,0.954928525275076,0.9867573087301382

@@ -1,0 +1,2 @@
+Model,Accuracy,Precision_weighted,Recall_weighted,F1_weighted,ROC_AUC
+Bagging (Decision Tree),0.8894,0.8859452903664249,0.8894,0.8858315024288625,0.9460293116308065
