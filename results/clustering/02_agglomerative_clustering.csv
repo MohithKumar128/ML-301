@@ -1,0 +1,2 @@
+Algorithm,Sample_Size,n_clusters,Silhouette_Score,Davies_Bouldin_Index,Calinski_Harabasz_Index
+"Agglomerative Clustering (Ward, K=4)",5000,4,0.24962505454457232,1.4964476045925084,828.3888953781791
