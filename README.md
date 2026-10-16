@@ -1,93 +1,109 @@
-````markdown
 # 23CSE301 Machine Learning Capstone
 
 ## ML-301
 
-This repository contains the implementation and evaluation work for the **23CSE301 Machine Learning Capstone — Academic Year 2026–27**.
+This repository contains the work for the **23CSE301 Machine Learning Capstone — Academic Year 2026–27**. It covers data analysis, preprocessing, model development, evaluation, and comparison across regression, classification, and clustering.
 
-The project follows an end-to-end Machine Learning workflow covering data analysis, preprocessing, feature engineering, model training, evaluation, hyperparameter tuning, and model comparison.
+## Project Objectives
 
----
-
-## Review 1
-
-The main aim of **Review 1** is to establish the foundation of the Machine Learning project through dataset analysis, preprocessing, feature engineering, and initial model development and evaluation.
-
-Review 1 focuses on:
-
-- Dataset understanding and Exploratory Data Analysis
-- Data cleaning and preprocessing
-- Missing-value and outlier handling
-- Feature engineering
-- Regression model development and evaluation
-- Classification Part-A model development and evaluation
-- Initial model comparison
-- Hyperparameter tuning for selected regression models
-
----
+- Analyse datasets using exploratory data analysis (EDA).
+- Clean and preprocess data.
+- Train and compare machine learning algorithms.
+- Evaluate models and perform hyperparameter tuning.
+- Identify patterns and groups using clustering.
+- Maintain reproducible experiments and documented results.
 
 ## Datasets
 
-### Regression Dataset
+### 1. Regression — Health Insurance Dataset
+Predicts the continuous target variable `claim` using health insurance features.
 
-**Dataset:** Health Insurance Data Set
+### 2. Classification — Diabetes Risk Prediction Dataset
+Predicts diabetes risk categories. Refer to the classification notebook for the exact target labels and preprocessing.
 
-The regression track uses health insurance data for predicting a continuous target variable called claim.
+### 3. Clustering — Bank Marketing Dataset
+Uses `bank-additional-full.csv` to discover groups of records based on their features. The target column `y` is excluded when fitting clustering algorithms.
 
-### Classification Dataset
+## Project Workflows
 
-**Dataset:** Diabetes Risk Prediction Dataset
+### Regression
+Implements and compares Linear Regression, Ridge, Lasso, ElasticNet, Polynomial Regression, Decision Tree, Random Forest, Gradient Boosting, SVR, and KNN Regression.
 
-The classification track predicts the diabetes risk category of a patient diabetes as low  ,middle and high.
+Notebook: `notebooks/regression.ipynb`
 
----
+### Classification
+Evaluates 10 classification algorithms, including Logistic Regression, KNN, Naive Bayes, Decision Tree, SVC, Random Forest, AdaBoost, Gradient Boosting, Bagging, and MLP. Model selection and hyperparameter tuning are also included.
 
-## Project Structure
+Notebook: `notebooks/classification.ipynb`
+
+### Clustering
+Implements K-Means and Agglomerative Clustering. Analysis includes the Elbow Method, dendrograms, Silhouette Score, Davies–Bouldin Index, Calinski–Harabasz Index, PCA visualisations, and t-SNE visualisation.
+
+Notebook: `notebooks/clustering.ipynb`
+
+## Repository Structure
 
 ```text
 ML-301/
-│
-├── .venv/
-│
 ├── app/
-│
 ├── data/
-│   ├── .gitkeep
-│   ├── diabetes_risk_prediction_dataset.csv
-│   └── health_insurance.csv
-│
 ├── models/
-│
 ├── notebooks/
-│   ├── .ipynb_checkpoints/
-│   ├── regression/
-│   ├── .gitkeep
 │   ├── classification.ipynb
-│   └── regression.ipynb
-│
+│   ├── regression.ipynb
+│   └── clustering.ipynb
 ├── results/
 │   ├── classification_results/
-│   │   ├── 01_logistic_regression.csv
-│   │   ├── 02_knn_classifier.csv
-│   │   ├── 03_gaussian_naive_bayes.csv
-│   │   ├── 04_decision_tree_classifier.csv
-│   │   └── 05_svc.csv
-│   │
-│   └── regression/
-│       ├── 00_preprocessing_summary.csv
-│       ├── 01_linear_regression.csv
-│       ├── 02_ridge_regression.csv
-│       ├── 03_lasso_regression.csv
-│       ├── 04_elasticnet_regression.csv
-│       ├── 05_polynomial_regression.csv
-│       ├── 06_decision_tree_regressor.csv
-│       ├── 07_random_forest_regressor.csv
-│       ├── 08_gradient_boosting_regressor.csv
-│       ├── 09_svr.csv
-│       └── 10_knn_regressor.csv
-│
-├── .gitignore
+│   ├── regression/
+│   └── clustering/
 ├── README.md
 ├── requirements.txt
-└── REVIEW1_WORK_SPLIT.md
-````
+├── REVIEW1_WORK_SPLIT.md
+└── .gitignore
+```
+
+## Setup
+
+Clone the repository and enter the project directory:
+
+```bash
+git clone https://github.com/MohithKumar128/ML-301.git
+cd ML-301
+```
+
+Create and activate a virtual environment on Windows:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+## How to Run
+
+1. Ensure the required datasets are available at the paths expected by the notebooks.
+2. Open the relevant notebook from `notebooks/`.
+3. Run cells from top to bottom.
+4. Review the generated results and visualisations in `results/`.
+
+## Reproducibility
+
+- Use fixed random seeds where applicable.
+- Fit preprocessing transformations on training data only for supervised workflows.
+- Exclude target variables when fitting clustering algorithms.
+- Verify notebook outputs and saved results before submission.
+
+## Conclusion
+
+This project demonstrates an end-to-end machine learning workflow across regression, classification, and unsupervised clustering, with a focus on model comparison, evaluation, and reproducibility.
