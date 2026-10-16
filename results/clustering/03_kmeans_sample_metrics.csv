@@ -1,0 +1,2 @@
+Algorithm,Sample_Size,n_clusters,Silhouette_Score,Davies_Bouldin_Index,Calinski_Harabasz_Index
+K-Means (K=4),5000,4,0.13710833943396653,2.152944355976292,902.5867797384159
