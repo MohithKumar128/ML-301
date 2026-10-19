@@ -1,47 +1,106 @@
-# 23CSE301 Machine Learning Capstone
+# ML-301: Machine Learning Capstone
 
-## ML-301
+This project explores machine learning techniques for regression, classification, and clustering. It includes data preprocessing, model training, performance evaluation, model comparison, and visualisation of results.
 
-This repository contains the work for the **23CSE301 Machine Learning Capstone — Academic Year 2026–27**. It covers data analysis, preprocessing, model development, evaluation, and comparison across regression, classification, and clustering.
+## Problem Statement
 
-## Project Objectives
+The aim of this project is to apply and compare machine learning algorithms to solve three tasks:
 
-- Analyse datasets using exploratory data analysis (EDA).
-- Clean and preprocess data.
-- Train and compare machine learning algorithms.
-- Evaluate models and perform hyperparameter tuning.
-- Identify patterns and groups using clustering.
-- Maintain reproducible experiments and documented results.
+- **Regression:** Predict health insurance claim amounts from available features.
+- **Classification:** Predict diabetes risk categories using patient-related features.
+- **Clustering:** Discover groups of similar records in the Bank Marketing dataset without using the target variable to form clusters.
+
+The project compares different algorithms using suitable evaluation metrics to identify models that perform well for each task.
 
 ## Datasets
 
-### 1. Regression — Health Insurance Dataset
-Predicts the continuous target variable `claim` using health insurance features.
+| Task | Dataset | Objective |
+|---|---|---|
+| Regression | Health Insurance dataset | Predict insurance claim amounts |
+| Classification | Diabetes Risk Prediction dataset | Predict diabetes risk categories |
+| Clustering | Bank Marketing dataset (`bank-additional-full.csv`) | Identify groups of similar records |
 
-### 2. Classification — Diabetes Risk Prediction Dataset
-Predicts diabetes risk categories. Refer to the classification notebook for the exact target labels and preprocessing.
+## Algorithms Used
 
-### 3. Clustering — Bank Marketing Dataset
-Uses `bank-additional-full.csv` to discover groups of records based on their features. The target column `y` is excluded when fitting clustering algorithms.
+### 1. Regression
 
-## Project Workflows
+The following algorithms were evaluated:
 
-### Regression
-Implements and compares Linear Regression, Ridge, Lasso, ElasticNet, Polynomial Regression, Decision Tree, Random Forest, Gradient Boosting, SVR, and KNN Regression.
+- Linear Regression
+- Ridge Regression
+- Lasso Regression
+- ElasticNet Regression
+- Polynomial Regression
+- Decision Tree Regressor
+- Random Forest Regressor
+- Gradient Boosting Regressor
+- Support Vector Regressor (SVR)
+- K-Nearest Neighbours (KNN) Regressor
 
-Notebook: `notebooks/regression.ipynb`
+**Best-performing model: Random Forest Regressor**
 
-### Classification
-Evaluates 10 classification algorithms, including Logistic Regression, KNN, Naive Bayes, Decision Tree, SVC, Random Forest, AdaBoost, Gradient Boosting, Bagging, and MLP. Model selection and hyperparameter tuning are also included.
+Saved evaluation results:
 
-Notebook: `notebooks/classification.ipynb`
+- R² score: 0.9636
+- RMSE: 2332.40
+- MAE: 543.85
+- Cross-validation R²: 0.9627
 
-### Clustering
-Implements K-Means and Agglomerative Clustering. Analysis includes the Elbow Method, dendrograms, Silhouette Score, Davies–Bouldin Index, Calinski–Harabasz Index, PCA visualisations, and t-SNE visualisation.
+The Random Forest Regressor achieved the highest R² score among the listed regression models in the saved results, with lower prediction error than the other evaluated models.
 
-Notebook: `notebooks/clustering.ipynb`
+### 2. Classification
 
-## Repository Structure
+The following algorithms were evaluated:
+
+- Logistic Regression
+- K-Nearest Neighbours (KNN)
+- Gaussian Naive Bayes
+- Decision Tree Classifier
+- Support Vector Classifier (SVC)
+- Random Forest Classifier
+- AdaBoost Classifier
+- Gradient Boosting Classifier
+- Bagging Classifier
+- Multi-Layer Perceptron (MLP)
+
+**Best-performing model: Tuned AdaBoost Classifier**
+
+Saved evaluation results:
+
+- Accuracy: 96.10%
+- Weighted F1-score: 95.71%
+- Weighted ROC-AUC: 98.77%
+- Best hyperparameters: `n_estimators = 200`, `learning_rate = 1.0`
+
+AdaBoost was selected based on the comparison of the ten classification algorithms. Hyperparameter tuning improved its performance compared with the baseline model. However, the results also show that the minority Low-risk class remains difficult to classify.
+
+### 3. Clustering
+
+The following algorithms were evaluated:
+
+- K-Means Clustering
+- Agglomerative Clustering
+
+The analysis includes:
+
+- Elbow Method for selecting the number of clusters
+- Dendrogram for hierarchical clustering
+- Silhouette Score
+- Davies–Bouldin Index
+- Calinski–Harabasz Index
+- PCA-based two-dimensional visualisations
+- t-SNE visualisation
+
+**Current leading model: Agglomerative Clustering (Ward linkage)**
+
+Saved evaluation results:
+
+- Silhouette Score: 0.2496
+- Davies–Bouldin Index: 1.4964
+
+Agglomerative Clustering has a higher Silhouette Score and lower Davies–Bouldin Index than K-Means in the recorded comparison. These metrics suggest better-defined clusters on those two measures.
+
+## Project Structure
 
 ```text
 ML-301/
@@ -62,48 +121,82 @@ ML-301/
 └── .gitignore
 ```
 
-## Setup
+## Environment Setup
 
-Clone the repository and enter the project directory:
+### Prerequisites
+
+- Python 3.10 or a compatible Python version
+- pip
+- Git
+- Jupyter Notebook
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/MohithKumar128/ML-301.git
 cd ML-301
 ```
 
-Create and activate a virtual environment on Windows:
+### 2. Create a virtual environment
+
+On Windows PowerShell:
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 ```
 
-Install dependencies:
+### 3. Install the dependencies
 
 ```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Launch Jupyter Notebook:
+## How to Run the Project
+
+### Run the notebooks
+
+Start Jupyter Notebook:
 
 ```bash
 jupyter notebook
 ```
 
-## How to Run
+Open the relevant notebook from the `notebooks/` directory:
 
-1. Ensure the required datasets are available at the paths expected by the notebooks.
-2. Open the relevant notebook from `notebooks/`.
-3. Run cells from top to bottom.
-4. Review the generated results and visualisations in `results/`.
+- `regression.ipynb`
+- `classification.ipynb`
+- `clustering.ipynb`
+
+Ensure the required datasets are available in the expected locations before running the notebook cells. Run the cells in order and review the generated metrics, tables, and visualisations.
+
+### Run the Streamlit application
+
+If you want to launch the project application, run:
+
+```bash
+streamlit run app/app.py
+```
+
+## Evaluation Metrics
+
+| Task | Metrics |
+|---|---|
+| Regression | R² score, Root Mean Squared Error (RMSE), Mean Absolute Error (MAE) |
+| Classification | Accuracy, Weighted Precision, Weighted Recall, Weighted F1-score, ROC-AUC |
+| Clustering | Silhouette Score, Davies–Bouldin Index, Calinski–Harabasz Index |
+
+For regression, higher R² and lower RMSE and MAE generally indicate better performance. For classification, multiple metrics are considered because the dataset contains imbalanced classes. For clustering, the metrics help assess cluster separation, compactness, and structure.
 
 ## Reproducibility
 
-- Use fixed random seeds where applicable.
-- Fit preprocessing transformations on training data only for supervised workflows.
-- Exclude target variables when fitting clustering algorithms.
-- Verify notebook outputs and saved results before submission.
+- Use fixed random seeds where appropriate.
+- Fit preprocessing transformations on training data only for supervised learning tasks.
+- Exclude the target variable when fitting clustering algorithms.
+- Keep dependencies documented in `requirements.txt`.
+- Review saved results and notebook outputs when comparing model performance.
 
 ## Conclusion
 
-This project demonstrates an end-to-end machine learning workflow across regression, classification, and unsupervised clustering, with a focus on model comparison, evaluation, and reproducibility.
+This project compares machine learning algorithms across regression, classification, and clustering. The saved results identify Random Forest Regressor as the leading regression model, tuned AdaBoost as the leading classification model, and Agglomerative Clustering (Ward linkage) as the current leader on the recorded Silhouette and Davies–Bouldin metrics.
